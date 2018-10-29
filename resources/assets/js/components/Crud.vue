@@ -14,7 +14,7 @@
                 >{{ col | properCase }}</option>
 
             </select>
-            <button @click="del">Delete</button>
+            <button class="btn btn-primary" @click="del">Delete</button>
         </div>
     </div>
 </template>

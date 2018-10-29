@@ -7,23 +7,26 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-Vue.config.devtools = true;
+import Vue from 'vue'
+
+Vue.config.devtools = false;
 Vue.config.performance = true;
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 import App from './components/App.vue';
 
+import store from './store'
+import BootstrapVue from 'bootstrap-vue';
+
 const app = new Vue({
-  el: '#app',
+  el: '#main',
+  store,
   components: {
-    App
+    app: App
   },
-  render: h => h(App)
+  // render: h => h(App)
 });
+
+// app.use(BootstrapVue);

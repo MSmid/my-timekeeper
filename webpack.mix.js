@@ -11,5 +11,21 @@ let mix = require('laravel-mix');
  |
  */
 
+mix.styles([
+    'node_modules/bootstrap/dist/css/bootstrap.min.css'
+]);
+
+mix.extract([
+    'bootstrap', 'lodash'
+]);
+
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/app.scss', 'public/css')
+
+   .browserSync({
+        host: 'my-timekeeper.local',
+        proxy: 'my-timekeeper.local',
+        // open: 'external',
+    });
+
+// mix.disableNotifications();

@@ -1,7 +1,9 @@
 <template>
     <div id="app">
+        <loading-overlay :visible="isLoading"></loading-overlay>
+        <layout></layout>
         <div class="heading">
-            <h1>Cruds</h1>
+            <h1>My Timekeeper</h1>
         </div>
         <crud-component
                 v-for="crud in cruds"
@@ -23,7 +25,9 @@
     this.name = name;
   }
 
-  import CrudComponent from './Crud.vue';
+  import Layout from './layout/Layout.vue'
+  import LoadingOverlay from './layout/LoadingOverlay.vue'
+  import CrudComponent from './Crud.vue'
 
   export default {
     data() {
@@ -71,7 +75,10 @@
       }
     },
     components: {
-      CrudComponent
+      CrudComponent,
+
+      Layout,
+      LoadingOverlay
     },
     created() {
       this.read();
