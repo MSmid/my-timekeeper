@@ -15,7 +15,15 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('project_id');
+            $table->date('date');
+            $table->integer('hours');
+            $table->integer('minutes');
+            $table->text('work_description')->nullable();
             $table->timestamps();
+
+            $table->foreign('project_id')->references('id')->on('projects');
+             
         });
     }
 
